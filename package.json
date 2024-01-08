@@ -28,6 +28,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://rafaelpatrick.com.br/react/simple/",
   "browserslist": {
     "production": [
       ">0.2%",

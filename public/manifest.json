@@ -18,7 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://rafaelpatrick.com.br/react/simple/",
+  "homepage": "https://rafaelpatrick.com.br/react/simple/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
