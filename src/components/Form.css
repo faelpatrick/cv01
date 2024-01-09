@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.curriculo-container {
+  display: grid;
+  align-items: flex-start;
+  justify-items: start;
+  /* min-height: 100vh; */
+  border: 1px solid #ccc;
+
+  width: 595px; /* Aproximadamente a largura de uma folha A4 */
+  height: 842px; /* Aproximadamente a altura de uma folha A4 */
+  margin: auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header {
+  display: grid;
+  grid-template-areas: "foto nome" "foto dados";
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr 3fr;
+  gap: 1rem;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cv-header-logo {
+  grid-area: foto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: solid 2px #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header-name {
+  grid-area: nome;
+  border-bottom: solid 1px black;
+  width: 100%;
+  text-align: left;
+  font-size: 16pt;
+}
+
+.cv-header-dados {
+  grid-area: dados;
+  border-bottom: solid 1px black;
+  width: 100%;
+  text-align: left;
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  font-size: 10pt;
+}
+.cv-header-dados p {
+  display: flex;
+}
+
+.cv-header-dados p b {
+    margin-right: 4px;
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .curriculo-container,
+  .curriculo-container * {
+    visibility: visible;
+  }
+
+  .curriculo-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: none;
+  }
+}
