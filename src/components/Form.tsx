@@ -62,9 +62,26 @@ const Formulario: React.FC<FormularioProps> = ({ onDadosChange }) => {
     }
   };
 
+  const handleCloseMenu = () => {
+    const menuForm = document.getElementById("form-container");
+    const menu = document.getElementById("menu");
+    if (menu) {
+      menu?.innerText === "⬅️" ? (menu.innerText = "➡️") : (menu.innerText = "⬅️");
+    }
+
+    if (menuForm && menuForm.style.left != "-240px") {
+      menuForm.style.left = "-240px";
+    } else if (menuForm) {
+      menuForm.style.left = "0px";
+    }
+  };
+
   return (
-    <div className="form-container">
+    <div id="form-container" className="form-container">
       <form>
+        <div id="menu" onClick={() => handleCloseMenu()}>
+          ⬅️
+        </div>
         <label>
           <h2>Dados Pessoais {mostrarDadosPessoais ? "⬆️" : "⬇️"} </h2>
           <input type="checkbox" name="checkPessoal" id="checkForm" value={dados.mostrarFormPessoal} onChange={() => setMostrarDadosPessoais(!mostrarDadosPessoais)} />
@@ -238,9 +255,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-container">
-      <Formulario onDadosChange={setDadosCurriculo} />
-      <Curriculo dados={dadosCurriculo} />
+    <div className="app">
+      <div className="app-container">
+        <Formulario onDadosChange={setDadosCurriculo} />
+        <Curriculo dados={dadosCurriculo} />
+      </div>
       <button id="btn-imprimir" onClick={handlePrint}>
         Imprimir Currículo
       </button>

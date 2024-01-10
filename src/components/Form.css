@@ -13,6 +13,10 @@
   min-height: 100vh;
 }
 
+#form-container {
+  left: 0px;
+}
+
 .form-container {
   display: flex;
   justify-content: center;
@@ -23,12 +27,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .form-container label {
   border-bottom: solid 1px #ccc;
   width: 100%;
   padding: 0;
   margin: 0;
-  background: linear-gradient( to bottom, #cccccc, #fff);
+  background: linear-gradient(to bottom, #cccccc, #fff);
 }
 .curriculo-container {
   display: grid;
@@ -193,4 +198,37 @@ button#btn-imprimir {
     width: 100%;
     height: 100%;
   }
+}
+
+#menu {
+  display: none;
+}
+
+/* Media queries para telas menores */
+@media only screen and (max-width: 1024px) {
+  .curriculo-container {
+    width: 80%;
+  }
+
+  .form-container {
+    position: absolute;
+    width: 80%;
+    left: 0;
+  }
+
+  #menu {
+    display: flex;
+    right: -10px;
+    margin-left: 40px;
+    position: absolute;
+    height: 100%;
+    background: gray;
+    width: 60px;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    font-size: 40pt;
+    border-radius: 0 20px 20px 0;
+  }
+
 }
