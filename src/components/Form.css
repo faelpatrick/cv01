@@ -5,24 +5,37 @@
 }
 .app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
   min-height: 100vh;
 }
 
 .form-container {
   display: flex;
-  padding: 20px;
+  justify-content: center;
+  width: 450px;
+  padding: 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+  border-bottom: solid 1px #ccc;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient( to bottom, #cccccc, #fff);
 }
 .curriculo-container {
   display: grid;
   align-items: flex-start;
   justify-items: start;
-  /* min-height: 100vh; */
+  align-content: baseline;
+  gap: 1rem;
   border: 1px solid #ccc;
 
   width: 595px; /* Aproximadamente a largura de uma folha A4 */
@@ -35,17 +48,18 @@
 .cv-header {
   display: grid;
   grid-template-areas: "foto nome" "foto dados";
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 100px auto;
   grid-template-rows: 1fr 3fr;
   gap: 1rem;
-  padding: 20px;
+  padding: 10px;
   border-bottom: 1px solid #ccc;
+  width: 100%;
 }
 
 .cv-header-logo {
   grid-area: foto;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
@@ -61,16 +75,15 @@
   font-size: 16pt;
 }
 
-
 .cv-header-dados {
   grid-area: dados;
-  border-bottom: solid 1px black;
   width: 100%;
   text-align: left;
-  font-size: 12pt;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
   overflow: hidden;
   font-size: 10pt;
 }
@@ -79,8 +92,89 @@
 }
 
 .cv-header-dados p b {
-    margin-right: 4px;
+  margin-right: 4px;
 }
+
+.cv-body {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: justify;
+}
+
+.cv-body h2 {
+  border-bottom: 2px solid #cdcdcd;
+  width: 100%;
+  font-size: 14pt;
+}
+
+.cv-body p {
+  font-size: 10pt;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: -webkit-fill-available;
+}
+
+form input {
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+#checkPessoal {
+  visibility: hidden;
+}
+#checkForm {
+  visibility: hidden;
+}
+#checkForm:checked ::after {
+  content: ⬇️;
+}
+#checkForm::after {
+  content: ⬇️;
+}
+
+textarea#sobremim {
+  width: -webkit-fill-available;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+button#btn-imprimir {
+  height: 100px;
+  position: absolute;
+  width: 100px;
+  border-radius: 51%;
+  color: #ededed;
+  background: mediumseagreen;
+  border: 2px solid #ccc;
+  right: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Media queries para impressão */
 @media print {
   body * {
     visibility: hidden;
@@ -96,5 +190,7 @@
     left: 0;
     top: 0;
     box-shadow: none;
+    width: 100%;
+    height: 100%;
   }
 }
