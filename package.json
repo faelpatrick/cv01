@@ -28,7 +28,9 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://rafaelpatrick.com.br/react/simple/",
+  "homepage2": "https://rafaelpatrick.com.br/react/simple/",
+  "homepage": "https://europass.vercel.app/",
+  
   "browserslist": {
     "production": [
       ">0.2%",
